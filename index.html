@@ -38,19 +38,19 @@
           class="card p-5 bg-base-200 rounded-lg shadow-md hover:-translate-0.5 transition"
         >
           <h3 class="text-[1rem] font-medium">Total</h3>
-          <h2 class="text-3xl font-bold">8</h2>
+          <h2 class="total-job-number text-3xl font-bold">8</h2>
         </div>
         <div
           class="card p-5 bg-base-200 rounded-lg shadow-md hover:-translate-0.5 transition"
         >
           <h3 class="text-[1rem] font-medium">Interview</h3>
-          <h2 class="text-3xl font-bold text-green-600">0</h2>
+          <h2 class="total-interview-job text-3xl font-bold text-green-600">0</h2>
         </div>
         <div
           class="card p-5 bg-base-200 rounded-lg shadow-md hover:-translate-0.5 transition"
         >
           <h3 class="text-[1rem] font-medium">Rejected</h3>
-          <h2 class="text-3xl font-bold text-red-600">0</h2>
+          <h2 class="total-reject-job text-3xl font-bold text-red-600">0</h2>
         </div>
       </div>
     </header>
@@ -60,9 +60,9 @@
       <div class="flex justify-between">
         <h3 class="text-2xl font-semibold">Available Jobs</h3>
         <div class="flex gap-1">
-            <p id="number-of-interview-job" class="text-xl font-medium hidden"><span>0</span> of</p>
-            <p id="number-of-reject-job" class="text-xl font-medium hidden"><span>0</span> of</p>
-            <p class="text-xl font-medium"><span>8</span> Jobs</p>
+            <p id="number-of-interview-job" class="text-xl font-medium hidden"><span class="total-interview-job">0</span> of</p>
+            <p id="number-of-reject-job" class="text-xl font-medium hidden"><span class="total-reject-job">0</span> of</p>
+            <p class="text-xl font-medium"><span class="total-job-number">8</span> Jobs</p>
         </div>
       </div>
       <!-- filterable tab -->
@@ -481,7 +481,7 @@
           </div>
           <!-- interview job list -->
            <div id="interview-job-list">
-
+                
            </div>
     </section>
 
@@ -499,7 +499,7 @@
             </div>
           <!-- interview job list -->
            <div id="reject-job-list">
-
+                
            </div>
     </section>
 
