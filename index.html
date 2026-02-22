@@ -59,7 +59,11 @@
       <!-- title -->
       <div class="flex justify-between">
         <h3 class="text-2xl font-semibold">Available Jobs</h3>
-        <p class="text-xl font-medium"><span>8</span> Jobs</p>
+        <div class="flex gap-1">
+            <p id="number-of-interview-job" class="text-xl font-medium hidden"><span>0</span> of</p>
+            <p id="number-of-reject-job" class="text-xl font-medium hidden"><span>0</span> of</p>
+            <p class="text-xl font-medium"><span>8</span> Jobs</p>
+        </div>
       </div>
       <!-- filterable tab -->
       <div class="py-10">
@@ -67,29 +71,32 @@
         <div class="tabs gap-4">
           <!-- All tab  -->
           <input
+          id="all-tab-btn"
             type="radio"
             name="my_tabs_1"
-            class="tab checked:bg-[#3B82F6] checked:text-white hover:text-[#3B82F6] bg-base-200 rounded-sm shadow-md text-black"
+            class="tab checked:bg-[#3B82F6] checked:text-white  bg-base-200 rounded-sm shadow-md text-black"
             aria-label="All"
             checked="checked"
           />
           <!-- Interview tab -->
           <input
+          id="interview-tab-btn"
             type="radio"
             name="my_tabs_1"
-            class="tab checked:bg-[#3B82F6] checked:text-white hover:text-[#3B82F6] bg-base-200 rounded-sm shadow-md text-black"
+            class="tab checked:bg-[#3B82F6] checked:text-white  bg-base-200 rounded-sm shadow-md text-black"
             aria-label="Interview"
           />
 
           <input
+          id="reject-tab-btn"
             type="radio"
             name="my_tabs_1"
-            class="tab checked:bg-[#3B82F6] checked:text-white hover:text-[#3B82F6] bg-base-200 rounded-sm shadow-md text-black"
+            class="tab checked:bg-[#3B82F6] checked:text-white ] bg-base-200 rounded-sm shadow-md text-black"
             aria-label="Rejected"
           />
         </div>
         <!-- job card -->
-        <div id="" class="card-container mt-8 relative space-y-8">
+        <div id="all-card" class="card-container mt-8 relative space-y-8">
           <div
             class="card p-8 bg-base-200 rounded-lg shadow-md hover transition space-y-5 hover:border-[#3B82F6] hover:border transition hover:-translate-0.5"
           >
@@ -457,20 +464,48 @@
         </div>
       </div>
     </section>
+
+
     <!-- Interview tab -->
 
-    <section id="empty-job-section" class="hidden">
+    <section id="interview-tab-section" class=" my-5 hidden">
+        <!-- empty job -->
         <div
-        
-            class="card p-28 bg-base-200 rounded-lg shadow-md hover transition  flex justify-center items-center "
+            id="empty-job"
+            class="card lg:p-28 p-10 bg-base-200 rounded-lg shadow-md hover transition  flex justify-center items-center "
           >
-            <i class="fa-solid fa-file text-6xl text-[#98befc]"></i>
-            <h3 class="text-2xl font-semibold mt-5">No Jobs Available</h3>
-            <p class="text-gray-500 mt-2">Check back soon for new job opportunities</p>
+                <i class="fa-solid fa-file text-6xl text-[#98befc]"></i>
+                <h3 class="text-2xl font-semibold mt-5">No Jobs Available</h3>
+                <p class="text-gray-500 mt-2">Check back soon for new job opportunities</p>
             
           </div>
+          <!-- interview job list -->
+           <div id="interview-job-list">
+
+           </div>
+    </section>
+
+    <!-- Rejected tab -->
+    <section id="reject-tab-section" class=" my-5 hidden">
+        <!-- empty job -->
+            <div
+                id="empty-job"
+                class="card lg:p-28 p-10 bg-base-200 rounded-lg shadow-md hover transition  flex justify-center items-center "
+            >
+                    <i class="fa-solid fa-file text-6xl text-[#98befc]"></i>
+                    <h3 class="text-2xl font-semibold mt-5">No Jobs Available</h3>
+                    <p class="text-gray-500 mt-2">Check back soon for new job opportunities</p>
+                
+            </div>
+          <!-- interview job list -->
+           <div id="reject-job-list">
+
+           </div>
     </section>
 
 
+
+    <script src="./script/machine.js"></script>
+    <script src="./script/tab-filter.js"></script>
   </body>
 </html>
