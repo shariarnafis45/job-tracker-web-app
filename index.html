@@ -28,7 +28,7 @@
       referrerpolicy="no-referrer"
     />
   </head>
-  <body class="max-w-[1110px] mx-auto">
+  <body class="max-w-[1110px] mx-auto" id="body">
     <header class="py-16 w-11/12 mx-auto">
       <h2 class="text-2xl sm:text-3xl font-bold mb-5 text-center sm:text-left">
         Job Application Tracker
@@ -38,19 +38,19 @@
           class="card p-5 bg-base-200 rounded-lg shadow-md hover:-translate-0.5 transition"
         >
           <h3 class="text-[1rem] font-medium">Total</h3>
-          <h2 class="total-job-number text-3xl font-bold">8</h2>
+          <h2 class="total-job-number text-3xl font-bold" id="total-job">8</h2>
         </div>
         <div
           class="card p-5 bg-base-200 rounded-lg shadow-md hover:-translate-0.5 transition"
         >
           <h3 class="text-[1rem] font-medium">Interview</h3>
-          <h2 class="total-interview-job text-3xl font-bold text-green-600">0</h2>
+          <h2 id="total-interview-job" class="total-interview-job text-3xl font-bold text-green-600">0</h2>
         </div>
         <div
           class="card p-5 bg-base-200 rounded-lg shadow-md hover:-translate-0.5 transition"
         >
           <h3 class="text-[1rem] font-medium">Rejected</h3>
-          <h2 class="total-reject-job text-3xl font-bold text-red-600">0</h2>
+          <h2 id="total-reject-job" class="total-reject-job text-3xl font-bold text-red-600">0</h2>
         </div>
       </div>
     </header>
@@ -60,9 +60,9 @@
       <div class="flex justify-between">
         <h3 class="text-2xl font-semibold">Available Jobs</h3>
         <div class="flex gap-1">
-            <p id="number-of-interview-job" class="text-xl font-medium hidden"><span class="total-interview-job">0</span> of</p>
-            <p id="number-of-reject-job" class="text-xl font-medium hidden"><span class="total-reject-job">0</span> of</p>
-            <p class="text-xl font-medium"><span class="total-job-number">8</span> Jobs</p>
+            <p id="number-of-interview-job" class="text-xl font-medium hidden"><span class="total-interview-job" id="interview-job-in-title">0</span> of</p>
+            <p id="number-of-reject-job" class="text-xl font-medium hidden"><span class="total-reject-job" id="reject-job-in-title">0</span> of</p>
+            <p class="text-xl font-medium"><span class="total-job-number" id="total-job-intitle">8</span> Jobs</p>
         </div>
       </div>
       <!-- filterable tab -->
@@ -98,6 +98,7 @@
         <!-- job card -->
         <div id="all-card" class="card-container mt-8 relative space-y-8">
           <div
+            data-id="job1"
             class="card p-8 bg-base-200 rounded-lg shadow-md hover transition space-y-5 hover:border-[#3B82F6] hover:border transition hover:-translate-0.5"
           >
             <h3 class="text-xl font-semibold">Mobile First Corp</h3>
@@ -106,12 +107,12 @@
               Remote • Full-time • $130,000 - $175,000
             </p>
             <div
-              class="badge badge-success text-white bg-green-600 border-none rounded-sm hidden"
+              class="interview-badge badge badge-success text-white bg-green-600 border-none rounded-sm hidden"
             >
               Interview
             </div>
             <div
-              class="badge badge-success text-white bg-red-600 border-none rounded-sm hidden"
+              class="reject-badge badge badge-success text-white bg-red-600 border-none rounded-sm hidden"
             >
               Rejected
             </div>
@@ -121,28 +122,29 @@
             </p>
             <div class="flex gap-4">
               <button
-                id="interview-btn"
-                class="btn btn-outline btn-success border-green-600 text-green-600 hover:text-white hover:bg-green-600"
+                
+                class="interview-btn btn btn-outline btn-success border-green-600 text-green-600 hover:text-white hover:bg-green-600"
               >
                 Interview
               </button>
               <button
-                id="reject-btn"
-                class="btn btn-outline btn-warning border-red-600 text-red-600 hover:text-white hover:bg-red-600"
+                
+                class="reject-btn btn btn-outline btn-warning border-red-600 text-red-600 hover:text-white hover:bg-red-600"
               >
                 Rejected
               </button>
             </div>
-            <div class="absolute right-10">
+            <div class="absolute right-10  ">
               <button
-                id="delete-btn"
-                class="btn btn-outline btn-success bg-[#3B82F6] text-white"
+                
+                class="delete-btn btn btn-outline btn-success bg-[#3B82F6] text-white"
               >
-                <i class="fa-solid fa-trash"></i>
+                <i class="delete-btn fa-solid fa-trash"></i>
               </button>
             </div>
           </div>
           <div
+          data-id="job2"
             class="card p-8 bg-base-200 rounded-lg shadow-md hover transition space-y-5 hover:border-[#3B82F6] hover:border transition hover:-translate-0.5"
           >
             <h3 class="text-xl font-semibold">WebFlow Agency</h3>
@@ -151,12 +153,12 @@
               Los Angeles, CA • Part-time • $80,000 - $120,000
             </p>
             <div
-              class="badge badge-success text-white bg-green-600 border-none rounded-sm hidden"
+              class=" interview-badge badge badge-success text-white bg-green-600 border-none rounded-sm hidden"
             >
               Interview
             </div>
             <div
-              class="badge badge-success text-white bg-red-600 border-none rounded-sm hidden"
+              class="reject-badge badge badge-success text-white bg-red-600 border-none rounded-sm hidden"
             >
               Rejected
             </div>
@@ -166,28 +168,29 @@
             </p>
             <div class="flex gap-4">
               <button
-                id="interview-btn"
-                class="btn btn-outline btn-success border-green-600 text-green-600 hover:text-white hover:bg-green-600"
+                
+                class="interview-btn btn btn-outline btn-success border-green-600 text-green-600 hover:text-white hover:bg-green-600"
               >
                 Interview
               </button>
               <button
-                id="reject-btn"
-                class="btn btn-outline btn-warning border-red-600 text-red-600 hover:text-white hover:bg-red-600"
+                
+                class="reject-btn btn btn-outline btn-warning border-red-600 text-red-600 hover:text-white hover:bg-red-600"
               >
                 Rejected
               </button>
             </div>
             <div class="absolute right-10">
               <button
-                id="delete-btn"
-                class="btn btn-outline btn-success bg-[#3B82F6] text-white"
+                
+                class="delete-btn btn btn-outline btn-success bg-[#3B82F6] text-white"
               >
-                <i class="fa-solid fa-trash"></i>
+                <i class="delete-btn fa-solid fa-trash"></i>
               </button>
             </div>
           </div>
           <div
+          data-id="job3"
             class="card p-8 bg-base-200 rounded-lg shadow-md hover transition space-y-5 hover:border-[#3B82F6] hover:border transition hover:-translate-0.5"
           >
             <h3 class="text-xl font-semibold">DataViz Solutions</h3>
@@ -196,12 +199,12 @@
               Boston, MA • Full-time • $125,000 - $165,000
             </p>
             <div
-              class="badge badge-success text-white bg-green-600 border-none rounded-sm hidden"
+              class="interview-badge badge badge-success text-white bg-green-600 border-none rounded-sm hidden"
             >
               Interview
             </div>
             <div
-              class="badge badge-success text-white bg-red-600 border-none rounded-sm hidden"
+              class="reject-badge badge badge-success text-white bg-red-600 border-none rounded-sm hidden"
             >
               Rejected
             </div>
@@ -211,28 +214,29 @@
             </p>
             <div class="flex gap-4">
               <button
-                id="interview-btn"
-                class="btn btn-outline btn-success border-green-600 text-green-600 hover:text-white hover:bg-green-600"
+                
+                class="interview-btn btn btn-outline btn-success border-green-600 text-green-600 hover:text-white hover:bg-green-600"
               >
                 Interview
               </button>
               <button
-                id="reject-btn"
-                class="btn btn-outline btn-warning border-red-600 text-red-600 hover:text-white hover:bg-red-600"
+                
+                class="reject-btn btn btn-outline btn-warning border-red-600 text-red-600 hover:text-white hover:bg-red-600"
               >
                 Rejected
               </button>
             </div>
             <div class="absolute right-10">
               <button
-                id="delete-btn"
-                class="btn btn-outline btn-success bg-[#3B82F6] text-white"
+                
+                class="delete-btn btn btn-outline btn-success bg-[#3B82F6] text-white"
               >
-                <i class="fa-solid fa-trash"></i>
+                <i class="delete-btn fa-solid fa-trash"></i>
               </button>
             </div>
           </div>
           <div
+          data-id="job4"
             class="card p-8 bg-base-200 rounded-lg shadow-md hover transition space-y-5 hover:border-[#3B82F6] hover:border transition hover:-translate-0.5"
           >
             <h3 class="text-xl font-semibold">CloudFirst Inc</h3>
@@ -241,12 +245,12 @@
               Seattle, WA • Full-time • $140,000 - $190,000
             </p>
             <div
-              class="badge badge-success text-white bg-green-600 border-none rounded-sm hidden"
+              class="interview-badge badge badge-success text-white bg-green-600 border-none rounded-sm hidden"
             >
               Interview
             </div>
             <div
-              class="badge badge-success text-white bg-red-600 border-none rounded-sm hidden"
+              class="reject-badge badge badge-success text-white bg-red-600 border-none rounded-sm hidden"
             >
               Rejected
             </div>
@@ -256,28 +260,29 @@
             </p>
             <div class="flex gap-4">
               <button
-                id="interview-btn"
-                class="btn btn-outline btn-success border-green-600 text-green-600 hover:text-white hover:bg-green-600"
+                
+                class="interview-btn btn btn-outline btn-success border-green-600 text-green-600 hover:text-white hover:bg-green-600"
               >
                 Interview
               </button>
               <button
-                id="reject-btn"
-                class="btn btn-outline btn-warning border-red-600 text-red-600 hover:text-white hover:bg-red-600"
+                
+                class="reject-btn btn btn-outline btn-warning border-red-600 text-red-600 hover:text-white hover:bg-red-600"
               >
                 Rejected
               </button>
             </div>
             <div class="absolute right-10">
               <button
-                id="delete-btn"
-                class="btn btn-outline btn-success bg-[#3B82F6] text-white"
+                
+                class="delete-btn btn btn-outline btn-success bg-[#3B82F6] text-white"
               >
-                <i class="fa-solid fa-trash"></i>
+                <i class="delete-btn fa-solid fa-trash"></i>
               </button>
             </div>
           </div>
           <div
+          data-id="job5"
             class="card p-8 bg-base-200 rounded-lg shadow-md hover transition space-y-5 hover:border-[#3B82F6] hover:border transition hover:-translate-0.5"
           >
             <h3 class="text-xl font-semibold">Innovation Labs</h3>
@@ -286,12 +291,12 @@
               Austin, TX • Full-time • $110,000 - $150,000
             </p>
             <div
-              class="badge badge-success text-white bg-green-600 border-none rounded-sm hidden"
+              class="interview-badge badge badge-success text-white bg-green-600 border-none rounded-sm hidden"
             >
               Interview
             </div>
             <div
-              class="badge badge-success text-white bg-red-600 border-none rounded-sm hidden"
+              class="reject-badge badge badge-success text-white bg-red-600 border-none rounded-sm hidden"
             >
               Rejected
             </div>
@@ -302,28 +307,29 @@
             </p>
             <div class="flex gap-4">
               <button
-                id="interview-btn"
-                class="btn btn-outline btn-success border-green-600 text-green-600 hover:text-white hover:bg-green-600"
+                
+                class="interview-btn btn btn-outline btn-success border-green-600 text-green-600 hover:text-white hover:bg-green-600"
               >
                 Interview
               </button>
               <button
-                id="reject-btn"
-                class="btn btn-outline btn-warning border-red-600 text-red-600 hover:text-white hover:bg-red-600"
+                
+                class="reject-btn btn btn-outline btn-warning border-red-600 text-red-600 hover:text-white hover:bg-red-600"
               >
                 Rejected
               </button>
             </div>
             <div class="absolute right-10">
               <button
-                id="delete-btn"
-                class="btn btn-outline btn-success bg-[#3B82F6] text-white"
+                
+                class="delete-btn btn btn-outline btn-success bg-[#3B82F6] text-white"
               >
-                <i class="fa-solid fa-trash"></i>
+                <i class="delete-btn fa-solid fa-trash"></i>
               </button>
             </div>
           </div>
           <div
+          data-id="job6"
             class="card p-8 bg-base-200 rounded-lg shadow-md hover transition space-y-5 hover:border-[#3B82F6] hover:border transition hover:-translate-0.5"
           >
             <h3 class="text-xl font-semibold">MegaCorp Solutions</h3>
@@ -332,12 +338,12 @@
               New York, NY • Full-time • $130,000 - $170,00
             </p>
             <div
-              class="badge badge-success text-white bg-green-600 border-none rounded-sm hidden"
+              class="interview-badge badge badge-success text-white bg-green-600 border-none rounded-sm hidden"
             >
               Interview
             </div>
             <div
-              class="badge badge-success text-white bg-red-600 border-none rounded-sm hidden"
+              class="reject-badge badge badge-success text-white bg-red-600 border-none rounded-sm hidden"
             >
               Rejected
             </div>
@@ -348,28 +354,29 @@
             </p>
             <div class="flex gap-4">
               <button
-                id="interview-btn"
-                class="btn btn-outline btn-success border-green-600 text-green-600 hover:text-white hover:bg-green-600"
+                
+                class="interview-btn btn btn-outline btn-success border-green-600 text-green-600 hover:text-white hover:bg-green-600"
               >
                 Interview
               </button>
               <button
-                id="reject-btn"
-                class="btn btn-outline btn-warning border-red-600 text-red-600 hover:text-white hover:bg-red-600"
+                
+                class="reject-btn btn btn-outline btn-warning border-red-600 text-red-600 hover:text-white hover:bg-red-600"
               >
                 Rejected
               </button>
             </div>
             <div class="absolute right-10">
               <button
-                id="delete-btn"
-                class="btn btn-outline btn-success bg-[#3B82F6] text-white"
+                
+                class="delete-btn btn btn-outline btn-success bg-[#3B82F6] text-white"
               >
-                <i class="fa-solid fa-trash"></i>
+                <i class="delete-btn fa-solid fa-trash"></i>
               </button>
             </div>
           </div>
           <div
+          data-id="job7"
             class="card p-8 bg-base-200 rounded-lg shadow-md hover transition space-y-5 hover:border-[#3B82F6] hover:border transition hover:-translate-0.5"
           >
             <h3 class="text-xl font-semibold">StartupXYZ</h3>
@@ -378,12 +385,12 @@
               Remote • Full-time • $120,000 - $160,000
             </p>
             <div
-              class="badge badge-success text-white bg-green-600 border-none rounded-sm hidden"
+              class="interview-badge badge badge-success text-white bg-green-600 border-none rounded-sm hidden"
             >
               Interview
             </div>
             <div
-              class="badge badge-success text-white bg-red-600 border-none rounded-sm hidden"
+              class="reject-badge badge badge-success text-white bg-red-600 border-none rounded-sm hidden"
             >
               Rejected
             </div>
@@ -394,28 +401,29 @@
             </p>
             <div class="flex gap-4">
               <button
-                id="interview-btn"
-                class="btn btn-outline btn-success border-green-600 text-green-600 hover:text-white hover:bg-green-600"
+                
+                class="interview-btn btn btn-outline btn-success border-green-600 text-green-600 hover:text-white hover:bg-green-600"
               >
                 Interview
               </button>
               <button
-                id="reject-btn"
-                class="btn btn-outline btn-warning border-red-600 text-red-600 hover:text-white hover:bg-red-600"
+                
+                class="reject-btn btn btn-outline btn-warning border-red-600 text-red-600 hover:text-white hover:bg-red-600"
               >
                 Rejected
               </button>
             </div>
             <div class="absolute right-10">
               <button
-                id="delete-btn"
-                class="btn btn-outline btn-success bg-[#3B82F6] text-white"
+                
+                class="delete-btn btn btn-outline btn-success bg-[#3B82F6] text-white"
               >
-                <i class="fa-solid fa-trash"></i>
+                <i class="delete-btn fa-solid fa-trash"></i>
               </button>
             </div>
           </div>
           <div
+          data-id="job8"
             class="card p-8 bg-base-200 rounded-lg shadow-md hover transition space-y-5 hover:border-[#3B82F6] hover:border transition hover:-translate-0.5"
           >
             <h3 class="text-xl font-semibold">TechCorp Industries</h3>
@@ -424,12 +432,12 @@
               San Francisco, CA • Full-time • $130,000 - $175,000
             </p>
             <div
-              class="badge badge-success text-white bg-green-600 border-none rounded-sm hidden"
+              class="interview-badge badge badge-success text-white bg-green-600 border-none rounded-sm hidden"
             >
               Interview
             </div>
             <div
-              class="badge badge-success text-white bg-red-600 border-none rounded-sm hidden"
+              class="reject-badge badge badge-success text-white bg-red-600 border-none rounded-sm hidden"
             >
               Rejected
             </div>
@@ -440,24 +448,24 @@
             </p>
             <div class="flex gap-4">
               <button
-                id="interview-btn"
-                class="btn btn-outline btn-success border-green-600 text-green-600 hover:text-white hover:bg-green-600"
+                
+                class="interview-btn btn btn-outline btn-success border-green-600 text-green-600 hover:text-white hover:bg-green-600"
               >
                 Interview
               </button>
               <button
-                id="reject-btn"
-                class="btn btn-outline btn-warning border-red-600 text-red-600 hover:text-white hover:bg-red-600"
+                
+                class="reject-btn btn btn-outline btn-warning border-red-600 text-red-600 hover:text-white hover:bg-red-600"
               >
                 Rejected
               </button>
             </div>
             <div class="absolute right-10">
               <button
-                id="delete-btn"
-                class="btn btn-outline btn-success bg-[#3B82F6] text-white"
+                
+                class="delete-btn btn btn-outline btn-success bg-[#3B82F6] text-white"
               >
-                <i class="fa-solid fa-trash"></i>
+                <i class="delete-btn fa-solid fa-trash"></i>
               </button>
             </div>
           </div>
@@ -468,10 +476,10 @@
 
     <!-- Interview tab -->
 
-    <section id="interview-tab-section" class=" my-5 hidden">
+    <section id="interview-tab-section" class="w-11/12 mx-auto my-5 hidden">
         <!-- empty job -->
         <div
-            id="empty-job"
+            id="empty-interview-job"
             class="card lg:p-28 p-10 bg-base-200 rounded-lg shadow-md hover transition  flex justify-center items-center "
           >
                 <i class="fa-solid fa-file text-6xl text-[#98befc]"></i>
@@ -480,16 +488,16 @@
             
           </div>
           <!-- interview job list -->
-           <div id="interview-job-list">
+           <div id="interview-job-list" class="space-y-5">
                 
            </div>
     </section>
 
     <!-- Rejected tab -->
-    <section id="reject-tab-section" class=" my-5 hidden">
+    <section id="reject-tab-section" class="w-11/12 mx-auto my-5 hidden">
         <!-- empty job -->
             <div
-                id="empty-job"
+                id="empty-reject-job"
                 class="card lg:p-28 p-10 bg-base-200 rounded-lg shadow-md hover transition  flex justify-center items-center "
             >
                     <i class="fa-solid fa-file text-6xl text-[#98befc]"></i>
@@ -507,5 +515,7 @@
 
     <script src="./script/machine.js"></script>
     <script src="./script/tab-filter.js"></script>
+    <script src="./script/all-tab-btn-function.js"></script>
+    
   </body>
 </html>

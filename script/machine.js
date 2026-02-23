@@ -23,29 +23,55 @@ function removeHidden(id){
 // Machine Calculate the number of total , interview , rejected
 
 function calculateAll(){
-    // total job numbers
-    const totalJobNums = document.querySelectorAll('.total-job-number');
-    const allCard = document.getElementById('all-card');
-    const totalJob = allCard.children.length;
-    for(let num of totalJobNums){
-        num.innerText = totalJob;
-    }
-    // total Interview job numbers
-    const totalInterviewJobNums = document.querySelectorAll('.total-interview-job');
-    const interviewJobCard = document.getElementById('interview-job-list');
-    const totalInterviewJob = interviewJobCard.children.length;
-    for(let num of totalInterviewJobNums){
-        num.innerText = totalInterviewJob;
-    }
+    // total job calculation
+    const totolJob = getElementFromId('total-job')
+    const cardNumbers = getElementFromId('all-card')
+    totolJob.innerText = cardNumbers.children.length;
+    const totalJobInTitle = getElementFromId('total-job-intitle')
+    totalJobInTitle.innerText = cardNumbers.children.length;
+
+    // Interview job number 
+    const interviewJobList = getElementFromId('interview-job-list')
+    const interviewNum = getElementFromId('total-interview-job');
+    interviewNum.innerText = interviewJobList.children.length;
+
+    const interviewNumInTitle = getElementFromId('interview-job-in-title');
+    interviewNumInTitle.innerText = interviewJobList.children.length;
+
+    // reject job number 
+    const rejectJobList = getElementFromId('reject-job-list')
+    const rejectNum = getElementFromId('total-reject-job');
+    rejectNum.innerText = rejectJobList.children.length;
+
+    const rejectwNumInTitle = getElementFromId('reject-job-in-title');
+    rejectwNumInTitle.innerText = rejectJobList.children.length;
+
     
-    // total Reject job numbers
-    const totalRejectJobNums = document.querySelectorAll('.total-reject-job');
-    const rejectJobCard = document.getElementById('reject-job-list');
-    const totalRejectJob = rejectJobCard.children.length;
-    for(let num of totalRejectJobNums){
-        num.innerText = totalRejectJob;
-    }
-    
+
 }
 
 calculateAll();
+// machine > job msg show / hide
+function showHideEmptyRejectJob(){
+    const rejectJobList = getElementFromId('reject-job-list');
+    // Step 1 check the condition
+    if(rejectJobList.children.length === 0){
+        removeHidden('empty-reject-job')
+    }else{
+        addHidden('empty-reject-job')
+    }
+}
+
+showHideEmptyRejectJob();
+
+function showHideEmptyInterviewJob(){
+    const interviewJobList = getElementFromId('interview-job-list');
+        // Step 1 check the condition
+        if(interviewJobList.children.length === 0){
+            removeHidden('empty-interview-job')   
+        }else{
+            addHidden('empty-interview-job')
+        }
+}
+
+showHideEmptyInterviewJob();
