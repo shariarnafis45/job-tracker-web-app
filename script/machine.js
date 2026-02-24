@@ -51,6 +51,7 @@ function calculateAll(){
 }
 
 calculateAll();
+
 // machine > job msg show / hide
 function showHideEmptyRejectJob(){
     const rejectJobList = getElementFromId('reject-job-list');
@@ -75,3 +76,7 @@ function showHideEmptyInterviewJob(){
 }
 
 showHideEmptyInterviewJob();
+
+
+
+
